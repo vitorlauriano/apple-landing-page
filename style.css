@@ -1,0 +1,369 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #e6e3e3;
+    font-family: 'Wix Madefor Text', sans-serif;
+}
+
+section {
+    width: 90%;
+    height: 750px;
+    margin: 50px auto;
+    border-radius: 30px;
+    overflow: hidden;
+    /* box-shadow: 2px 2px #00000080, -2px -2px #00000040; */
+}
+
+nav {
+    width: 100%;
+    height: 60px;
+    background: #222;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+nav .logo {
+    width: 20%;
+    height: 50px;
+}
+
+nav .logo .brand-logo {
+    width: 40px;
+    height: 50px;
+    display: block;
+    background: url('images/apple.png') center no-repeat;
+}
+
+nav .nav-menu {
+    width: 80%;
+    height: 50px;
+}
+
+nav .nav-menu ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .nav-menu ul li {
+    list-style: none;
+    height: 20px;
+}
+
+nav .nav-menu ul li:nth-last-child(2) {
+    margin: 0 0 0 200px;
+}
+
+nav .nav-menu ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Ícone de Pesquisa */
+
+nav .nav-menu ul li a.item-search,
+nav .nav-menu ul li a.shopping-bag {
+    width: 30px;
+    height: 30px;
+    margin: -7px 0 0 0;
+    display: inline-block;
+    background: url('images/search.png') center no-repeat;
+    position: relative;
+}
+
+/* Ícone muda para X para fechar a pesquisa */
+
+nav .nav-menu ul li a.item-search.active {
+    background: url('images/cancel.png') center no-repeat;
+}
+
+nav .nav-menu ul li a.shopping-bag {
+    background: url('images/shopping-bag.png') center no-repeat;
+}
+
+nav .nav-menu ul li a.shopping-bag:before {
+    content: attr(data-count);
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    width: 20px;
+    height: 20px;
+    background: red;
+    color: white;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+nav .nav-menu ul li a.shopping-bag.item-in-box:before {
+    opacity: 1;
+}
+
+nav .nav-menu ul li a.nav-link,
+nav .nav-menu ul li a.nav-link.active.expand {
+    transform: scale(1);
+    transition: 0.5s;
+    display: inline-block;
+}
+
+nav .nav-menu ul li:nth-last-child(2) a.nav-link,
+nav .nav-menu ul li:nth-last-child(2) a.nav-link.expand {
+    transform: none;
+}
+
+nav .nav-menu ul li a.nav-link.expand {
+    transform: scale(0);
+}
+
+/* Abertura do Search animado ao clicar */
+
+nav .nav-menu ul li:nth-child(1) a.nav-link.expand {
+    transition-delay: 0.6s;
+}
+
+nav .nav-menu ul li:nth-child(2) a.nav-link.expand {
+    transition-delay: 0.5s;
+}
+
+nav .nav-menu ul li:nth-child(3) a.nav-link.expand {
+    transition-delay: 0.4s;
+}
+
+nav .nav-menu ul li:nth-child(4) a.nav-link.expand {
+    transition-delay: 0.3s;
+}
+
+nav .nav-menu ul li:nth-child(5) a.nav-link.expand {
+    transition-delay: 0.2s;
+}
+
+nav .nav-menu ul li:nth-child(6) a.nav-link.expand {
+    transition-delay: 0.1s;
+}
+
+nav .nav-menu ul li:nth-child(7) a.nav-link.expand {
+    transition-delay: 0.0s;
+}
+
+/* Retorno do Search animado ao clicar */
+
+nav .nav-menu ul li:nth-child(1) a.nav-link {
+    transition-delay: 0.0s;
+}
+
+nav .nav-menu ul li:nth-child(2) a.nav-link {
+    transition-delay: 0.1s;
+}
+
+nav .nav-menu ul li:nth-child(3) a.nav-link {
+    transition-delay: 0.2s;
+}
+
+nav .nav-menu ul li:nth-child(4) a.nav-link {
+    transition-delay: 0.3s;
+}
+
+nav .nav-menu ul li:nth-child(5) a.nav-link {
+    transition-delay: 0.4s;
+}
+
+nav .nav-menu ul li:nth-child(6) a.nav-link {
+    transition-delay: 0.5s;
+}
+
+nav .nav-menu ul li:nth-child(7) a.nav-link {
+    transition-delay: 0.6s;
+}
+
+nav form {
+    position: absolute;
+    top: 5px;
+    left: 25%;
+    width: 870px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.7s ease-in;
+}
+
+nav form span {
+    width: 30px;
+    height: 50px;
+    display: inline-block;
+    background: url('images/search.png') center no-repeat;
+}
+
+nav form input {
+    width: 94%;
+    height: 50px;
+    background: transparent;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+nav form input::placeholder {
+    color: white;
+}
+
+nav form.show {
+    transform: scaleX(1);
+}
+
+main {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    color: white;
+    align-items: center;
+    background: #494844;
+}
+
+main .detail,
+main .image {
+    width: 48%;
+    height: 100%;
+    position: relative;
+}
+
+main .color {
+    width: 2%;
+}
+
+main .detail svg,
+main .detail .define {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+main .detail svg path {
+    fill: #252525;
+}
+
+main .detail .define {
+    padding: 50px 140px 50px 50px;
+}
+
+.define h1 {
+    font-size: 60px;
+}
+
+.define p {
+    font-size: 20px;
+}
+
+.define a {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #3791ac;
+    border-radius: 20px;
+    margin: 50px 0 0 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+.define h4 > span {
+    padding: 10px 20px;
+    margin: 20px 20px 0 0;
+    display: inline-flex;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+.define h4 > span:last-child {
+    background: #e4e1df;
+    color: #222;
+    border: 1px double #e4e1df;
+    font-size: initial;
+    cursor: pointer;
+}
+
+main .image img {
+    width: 100%;
+}
+
+main .color span {
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: #494844;
+    margin: 20px auto;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+main .color span:nth-child(2),
+section.Silver main {
+    background: #cacbc6;
+}
+
+main .color span:nth-child(3),
+section.Pacific-Blue main {
+    background: #405965;
+}
+
+main .color span:nth-child(4),
+section.Gold main {
+    background: #f7dcc0;
+}
+
+main .color span.active {
+    border: 4px solid;
+    animation: current 2s infinite;
+    border-color: red cyan magenta white;
+}
+
+@keyframes current {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+section.Silver nav {
+    background: #555;
+}
+
+section.Pacific-Blue nav {
+    background: #122f32;
+}
+
+section.Gold nav {
+    background: #381f11;
+}
+
+section.Silver main .detail svg path {
+    fill: gray;
+}
+
+section.Pacific-Blue main .detail svg path {
+    fill: #19343a;
+}
+
+section.Gold main .detail svg path {
+    fill: #55351d;
+}
+
+/* Acaba aqui */
+
+.cat {    
+    width: 20px;
+    margin: 10px 950px 0px;
+}
